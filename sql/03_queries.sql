@@ -1,6 +1,5 @@
 -- ============================================================
--- Cricket Tournament DB — Queries
--- Covers: SELECT, WHERE, Aggregates, GROUP BY, JOINs, Subqueries
+-- Queries
 -- ============================================================
 
 USE cricket_tournament;
@@ -22,7 +21,7 @@ FROM Team
 ORDER BY team_name;
 
 -- ============================================================
--- SECTION 2: Aggregate + GROUP BY / HAVING (Assignment Q3)
+-- SECTION 2: Aggregate + GROUP BY 
 -- ============================================================
 
 -- Q3a-i: Count how many matches are scheduled at each venue
@@ -48,7 +47,7 @@ HAVING matches_officiated > 0
 ORDER BY matches_officiated DESC;
 
 -- ============================================================
--- SECTION 3: JOIN Queries (Assignment Q4a)
+-- SECTION 3: JOIN Queries
 -- ============================================================
 
 -- Q4a: Full match schedule — teams, venue, referees (JOIN across 5 tables)
@@ -76,7 +75,7 @@ JOIN Referee_Assignment ra ON r.referee_id = ra.referee_id
 WHERE ra.match_id = 6;
 
 -- ============================================================
--- SECTION 4: Subqueries (Assignment Q4b — rewrite of JOIN)
+-- SECTION 4: Subqueries
 -- ============================================================
 
 -- Q4b: Get team names participating in the Final (match_id = 6) using subquery
