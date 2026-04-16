@@ -107,3 +107,12 @@ SELECT r.referee_name, COUNT(*) AS matches_officiated
 FROM Referee r JOIN Referee_Assignment ra ON r.referee_id = ra.referee_id
 GROUP BY r.referee_id HAVING matches_officiated > 3;
 ```
+
+```
+--Shows scheduled matches with home and away teams along with venue.
+<img width="772" height="265" alt="Screenshot 2026-04-17 at 3 11 16 AM" src="https://github.com/user-attachments/assets/d65bee75-e7b3-4438-b680-1526b86eb6eb" />
+
+-- Shows Referee workload
+<img width="603" height="197" alt="Screenshot 2026-04-17 at 3 13 06 AM" src="https://github.com/user-attachments/assets/a736d02e-5e09-403e-aab2-1a7e4b7fae0a" />
+
+```
