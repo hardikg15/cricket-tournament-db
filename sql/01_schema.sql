@@ -1,6 +1,5 @@
 -- ============================================================
 -- Cricket Tournament Scheduling Database
--- Subject: DBMS (CIC-210) | Assigned Domain: Sports Tournament Scheduling DB
 -- Schema normalized to 3NF
 -- ============================================================
 
@@ -58,7 +57,7 @@ CREATE TABLE Matches (
 -- ============================================================
 -- TABLE: Participation
 -- Links teams to matches (exactly 2 teams per match enforced via app logic)
--- role: 'Home' or 'Away' — distinguishes the two participating teams
+-- role: 'Home' or 'Away' distinguishes the two participating teams
 -- ============================================================
 CREATE TABLE Participation (
     match_id    INT         NOT NULL,
