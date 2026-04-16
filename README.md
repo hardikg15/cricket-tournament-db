@@ -1,7 +1,7 @@
 # Cricket Tournament Scheduling DB
 
 
-> Assigned Domain: Sports Tournament Scheduling DB (Complex constraints + conflicts)
+> Sports Tournament Scheduling DB 
 
 ---
 
