@@ -104,7 +104,7 @@ JOIN Team t2 ON p2.team_id = t2.team_id;
 ```
 
 <p align="center">
-  <img src="images/query1.png" width="400"/>
+  <img src="images/image1.png" width="400"/>
 </p>
 
 ```
@@ -115,7 +115,7 @@ GROUP BY r.referee_id HAVING matches_officiated > 3;
 ```
 
 <p align="center">
-  <img src="images/query2.png" width="400"/>
+  <img src="images/image2.png" width="400"/>
 </p>
 
 
