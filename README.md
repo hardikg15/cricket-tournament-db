@@ -94,9 +94,9 @@ mysql -u root -p cricket_tournament < sql/02_sample_data.sql
 
 ---
 
-### 📌 Full Match Schedule
-
 ```sql
+-- Full match schedule with team names
+
 SELECT m.match_date, t1.team_name AS home, t2.team_name AS away, v.venue_name
 FROM Matches m
 JOIN Venue v ON m.venue_id = v.venue_id
@@ -111,9 +111,10 @@ JOIN Team t2 ON p2.team_id = t2.team_id;
 
 ---
 
-### 📌 Referee Workload
 
 ```sql
+-- Referee workload
+
 SELECT r.referee_name, COUNT(*) AS matches_officiated
 FROM Referee r
 JOIN Referee_Assignment ra ON r.referee_id = ra.referee_id
