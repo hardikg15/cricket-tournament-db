@@ -44,9 +44,9 @@ Key relationships:
 ```
 cricket-tournament-db/
 ├── sql/
-│   ├── 01_schema.sql        # CREATE TABLE statements with constraints
-│   ├── 02_sample_data.sql   # INSERT statements with realistic data
-│   └── 03_queries.sql       # SELECT, JOIN, subquery, aggregate queries
+│   ├── 01_schema.sql         
+│   ├── 02_sample_data.sql    
+│   └── 03_queries.sql        
 │
 ├── er_diagram.md 
 │   
