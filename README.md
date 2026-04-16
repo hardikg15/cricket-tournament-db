@@ -1,32 +1,37 @@
 # Cricket Tournament Scheduling DB
 
-> **DBMS Assignment | CIC-210 | Maharaja Agrasen Institute of Technology, Delhi**
-> Semester 4 — Department of Information Technology
+
 > Assigned Domain: Sports Tournament Scheduling DB (Complex constraints + conflicts)
 
 ---
 
 ## Overview
 
-A fully normalized (3NF) relational database for managing a cricket tournament. Handles scheduling of matches, team participation, venue management, referee assignments, and match results — with proper integrity constraints to prevent double-bookings and data anomalies.
+A fully normalized (3NF) relational database for managing a cricket tournament. Handles scheduling of matches, team participation, venue management, referee assignments, and match results with proper integrity constraints to prevent double bookings and data anomalies.
 
 ## Schema
 
 ```
 Venue          (venue_id PK, venue_name, city, capacity)
+
 Team           (team_id PK, team_name, country, coach_name)
+
 Matches        (match_id PK, match_date, match_time, venue_id FK, match_type, status)
-Participation  (match_id FK, team_id FK, role)          ← composite PK
+
+Participation  (match_id FK, team_id FK, role)                  [composite PK]
+
 Referee        (referee_id PK, referee_name, nationality, experience_yrs)
-Referee_Assignment (match_id FK, referee_id FK, assignment_role)  ← composite PK
+
+Referee_Assignment (match_id FK, referee_id FK, assignment_role)   [composite PK]
+
 Match_Result   (match_id FK, winner_team_id FK, win_margin, player_of_match)
 ```
 
-All tables are in **3NF** — no partial or transitive dependencies.
+All tables are in **3NF** hence no partial or transitive dependencies.
 
 ## ER Diagram
 
-See [`docs/er_diagram.png`](docs/er_diagram.png) (hand-drawn version for submission) or the mermaid source in [`docs/er_diagram.md`](docs/er_diagram.md).
+See [`er_diagram.md`](er_diagram.md).
 
 Key relationships:
 - A **Venue** hosts many **Matches** (one-to-many)
@@ -42,9 +47,9 @@ cricket-tournament-db/
 │   ├── 01_schema.sql        # CREATE TABLE statements with constraints
 │   ├── 02_sample_data.sql   # INSERT statements with realistic data
 │   └── 03_queries.sql       # SELECT, JOIN, subquery, aggregate queries
-├── docs/
-│   ├── unit3_normalization_transactions.md   # Normalization + ACID writeup
-│   └── er_diagram.md        # Mermaid ER diagram source
+│
+├── er_diagram.md 
+│   
 └── README.md
 ```
 
@@ -79,7 +84,7 @@ mysql -u root -p cricket_tournament < sql/02_sample_data.sql
 
 | Constraint | Table | Purpose |
 |---|---|---|
-| `UNIQUE(venue_id, match_date, match_time)` | Matches | Prevents double-booking a venue |
+| `UNIQUE(venue_id, match_date, match_time)` | Matches | Prevents double booking a venue |
 | `UNIQUE(match_id, assignment_role)` | Referee_Assignment | One referee per role per match |
 | `CHECK(match_type IN (...))` | Matches | Only valid tournament stages |
 | `CHECK(role IN ('Home','Away'))` | Participation | Enforces team roles |
@@ -102,16 +107,3 @@ SELECT r.referee_name, COUNT(*) AS matches_officiated
 FROM Referee r JOIN Referee_Assignment ra ON r.referee_id = ra.referee_id
 GROUP BY r.referee_id HAVING matches_officiated > 3;
 ```
-
-## Assignment Coverage
-
-| Assignment | Unit | Topics Covered |
-|---|---|---|
-| Unit 1 | Intro to DBMS & ER Modeling | ER diagram, 3-level architecture, data models |
-| Unit 2 | Relational Model & SQL | Schema design, constraints, joins, subqueries |
-| Unit 3 | Normalization & Transactions | 3NF proof, ACID, concurrency scenario |
-| Unit 4 | File Organization & Indexing | Index strategy, B+ tree justification |
-
----
-
-*Subject: Database Management System (CIC-210) | Faculty: Dr. Shallu Bashambu, Dr. Vasudha Bahl, Mr. Ajay Kumar Kaushik*
