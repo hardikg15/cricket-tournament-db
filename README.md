@@ -92,8 +92,11 @@ mysql -u root -p cricket_tournament < sql/02_sample_data.sql
 
 ## Sample Queries
 
+---
+
+### 📌 Full Match Schedule
+
 ```sql
--- Full match schedule with team names
 SELECT m.match_date, t1.team_name AS home, t2.team_name AS away, v.venue_name
 FROM Matches m
 JOIN Venue v ON m.venue_id = v.venue_id
@@ -103,20 +106,22 @@ JOIN Team t1 ON p1.team_id = t1.team_id
 JOIN Team t2 ON p2.team_id = t2.team_id;
 ```
 
-<p align="center">
-  <img src="images/image1.png" width="400"/>
-</p>
+#### Output:
+![Match Schedule](images/image1.png)
 
-```
--- Referee workload
+---
+
+### 📌 Referee Workload
+
+```sql
 SELECT r.referee_name, COUNT(*) AS matches_officiated
-FROM Referee r JOIN Referee_Assignment ra ON r.referee_id = ra.referee_id
-GROUP BY r.referee_id HAVING matches_officiated > 3;
+FROM Referee r
+JOIN Referee_Assignment ra ON r.referee_id = ra.referee_id
+GROUP BY r.referee_id
+HAVING matches_officiated > 3;
 ```
 
-<p align="center">
-  <img src="images/image2.png" width="400"/>
-</p>
-
+#### Output:
+![Referee Workload](images/image2.png)
 
 
