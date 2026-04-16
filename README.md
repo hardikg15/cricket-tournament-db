@@ -101,21 +101,22 @@ JOIN Participation p1 ON m.match_id = p1.match_id AND p1.role = 'Home'
 JOIN Participation p2 ON m.match_id = p2.match_id AND p2.role = 'Away'
 JOIN Team t1 ON p1.team_id = t1.team_id
 JOIN Team t2 ON p2.team_id = t2.team_id;
+```
 
---Output
 <p align="center">
   <img src="images/query1.png" width="400"/>
 </p>
 
+```
 -- Referee workload
 SELECT r.referee_name, COUNT(*) AS matches_officiated
 FROM Referee r JOIN Referee_Assignment ra ON r.referee_id = ra.referee_id
 GROUP BY r.referee_id HAVING matches_officiated > 3;
+```
 
---Output
 <p align="center">
   <img src="images/query2.png" width="400"/>
 </p>
-```
+
 
 
