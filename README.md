@@ -48,7 +48,7 @@ cricket-tournament-db/
 │   ├── 02_sample_data.sql    
 │   └── 03_queries.sql        
 │
-├── er_diagram.md 
+├── er_handwritten.pdf
 │   
 └── README.md
 ```
