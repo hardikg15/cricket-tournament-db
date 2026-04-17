@@ -31,7 +31,7 @@ All tables are in **3NF** hence no partial or transitive dependencies.
 
 ## ER Diagram
 
-See [`er_handwritten.md`](er_handwritten.md).
+See [`er_handwritten.pdf`](er_handwritten.pdf).
 
 Key relationships:
 - A **Venue** hosts many **Matches** (one-to-many)
